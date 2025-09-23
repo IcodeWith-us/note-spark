@@ -8,6 +8,7 @@ import {
 import IconButton from "./common/IconButton";
 import SignOut from "./SignOut";
 import { useState } from "react";
+import logo from "@/assets/images.jpeg";
 
 export default function Navbar({
   buttonClick,
@@ -29,7 +30,7 @@ export default function Navbar({
           <AlignJustify className="cursor-pointer text-gray-600 w-6 h-6" />
         </button>
         <img
-          src="./src/assets/images.jpeg"
+          src={logo}
           alt="Note Spark Logo"
           className="w-8 h-8 sm:w-9 sm:h-9 border border-gray-300 rounded-md shadow-sm"
         />
