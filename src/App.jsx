@@ -1,7 +1,7 @@
 import React, { lazy, Suspense, useEffect, useState } from "react";
 import "./App.css";
 import Navbar from "./components/Navbar";
-import Herosection from "./components/Herosection";
+import Herosection from "./components/HeroSection";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import NoteSection from "./components/mainNotes/NoteSection";
 const Archive = lazy(() => import("./components/archiveTab/ArchiveNotes"));
