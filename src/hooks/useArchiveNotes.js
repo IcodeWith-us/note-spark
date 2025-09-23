@@ -69,9 +69,3 @@ export default function useArchiveNotes() {
   };
   return { handleUnarchive, handleDeleteForever };
 }
-
-//opacity-0 group-hover:opacity-100 transition
-// 1. Insert back into Notes
-// 2. Delete from Archive_notes
-// 3. Update Zustand stores //// add to Notes store
-// remove from Archive
