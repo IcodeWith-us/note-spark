@@ -30,7 +30,9 @@ function SidebarItems({ item, onClick, active, isOpen }) {
       <span
         className={cn(
           "ml-3 whitespace-nowrap transition-all duration-300 overflow-hidden",
-          isOpen ? "max-w-xs opacity-100" : "max-w-0 opacity-0"
+          isOpen
+            ? "max-w-xs opacity-100"
+            : "group-hover:max-w-xs group-hover:opacity-100 max-w-0 opacity-0"
         )}
       >
         {item.name}

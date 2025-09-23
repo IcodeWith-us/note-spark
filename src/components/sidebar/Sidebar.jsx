@@ -10,7 +10,7 @@ export default function Sidebar({ isOpen, active, setActive, setIsOpen }) {
         "w-64 transform",
         isOpen ? "translate-x-0" : "-translate-x-full",
         "md:translate-x-0 md:relative md:z-auto",
-        isOpen ? "md:w-64" : "md:w-20"
+        isOpen ? "w-64" : "md:w-20"
       )}
     >
       <nav className="flex flex-col gap-2">
@@ -29,4 +29,3 @@ export default function Sidebar({ isOpen, active, setActive, setIsOpen }) {
     </aside>
   );
 }
-// commit for initial
