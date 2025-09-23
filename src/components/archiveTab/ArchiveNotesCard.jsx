@@ -1,9 +1,8 @@
 import React from "react";
-import { ArchiveRestore, Trash2 } from "lucide-react";
+import { ArchiveRestore, Pin, Trash2 } from "lucide-react";
 import useArchiveNotes from "@/hooks/useArchiveNotes";
 import CardTooltipIcon from "../common/CardTooltipIcon";
 import NotesCardDetails from "../common/NotesCardDetails";
-
 function ArchiveNotesCard({ toggle, displayFilteredData }) {
   const { handleUnarchive, handleDeleteForever } = useArchiveNotes();
 
@@ -20,6 +19,15 @@ function ArchiveNotesCard({ toggle, displayFilteredData }) {
     <div className={toggleStyling}>
       {displayFilteredData.map((archive) => (
         <div key={archive.id} className={mainDivStyling}>
+          <button
+            className="absolute top-4 right-2 p-2 rounded-full hover:bg-gray-100 cursor-pointer opacity-0 group-hover:opacity-100 transition-opacity"
+            onClick={(e) => {
+              handleUnarchive(archive, true);
+              e.stopPropagation();
+            }}
+          >
+            <Pin className="text-gray-500" />
+          </button>
           <NotesCardDetails notesCategory={archive} />
 
           <div className="absolute bottom-2 right-2 flex gap-2 h-7 opacity-0 group-hover:opacity-100 transition-opacity">

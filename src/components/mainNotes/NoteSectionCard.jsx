@@ -1,10 +1,9 @@
 import React from "react";
-import NotesCardDetails from "../common/NotesCardDetails";
-import CardTooltipIcon from "../common/CardTooltipIcon";
-import { Archive, Trash2 } from "lucide-react";
+import RenderNoteWithPin from "./RenderNoteWithPin";
 import useHandleArchive from "@/hooks/useHandleArchive";
 import useHandleDelete from "@/hooks/useHandleDelete";
 import useHandleSaveNote from "@/hooks/useHandleSaveNote";
+import useFetchNotes from "@/store/useFetchNotes";
 
 function NoteSectionCard({
   toggle,
@@ -15,6 +14,7 @@ function NoteSectionCard({
   const { handleArchive } = useHandleArchive();
   const { handleDelete } = useHandleDelete();
   const { setNote } = useHandleSaveNote();
+  const { updatePinnedNote } = useFetchNotes();
 
   const toggleStyling = `${
     toggle
@@ -22,49 +22,50 @@ function NoteSectionCard({
       : "flex flex-col gap-4 w-[500px]"
   }`;
 
-  return (
-    <div className={toggleStyling}>
-      {displayFilteredData.map((n) => (
-        <div
-          onClick={() => {
-            setSelectedNote(n);
-            setShowModal(true);
-          }}
-          key={n.id}
-          className="relative group bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-all overflow-hidden break-words cursor-pointer min-h-[180px] mb-4 break-inside-avoid"
-        >
-          <NotesCardDetails notesCategory={n} setNote={setNote} />
+  const pinnedNotes = displayFilteredData.filter((n) => n.pinned);
+  const unpinnedNotes = displayFilteredData.filter((n) => !n.pinned);
 
-          <div className="absolute bottom-2 right-2 flex gap-2 h-7 opacity-0 group-hover:opacity-100 transition-opacity">
-            <CardTooltipIcon
-              iconSize={18}
-              className={"flex justify-between gap-2"}
-              actions={[
-                {
-                  icon: Archive,
-                  tooltipContent: "Archive",
-                  onClick: (e) => {
-                    e.stopPropagation();
-                    handleArchive(n);
-                  },
-                  btnClass: "p-1 rounded-full hover:bg-gray-100 cursor-pointer",
-                  color: "text-gray-600",
-                },
-                {
-                  icon: Trash2,
-                  tooltipContent: "Delete",
-                  onClick: (e) => {
-                    e.stopPropagation();
-                    handleDelete(n);
-                  },
-                  btnClass: "p-1 rounded-full hover:bg-gray-100 cursor-pointer",
-                  color: "text-red-500",
-                },
-              ]}
-            />
+  return (
+    <div className="space-y-8">
+      {pinnedNotes.length > 0 && (
+        <div>
+          <h2 className="text-md text-[#5f6368] mb-3">Pinned Notes</h2>
+          <div className={toggleStyling}>
+            {pinnedNotes.map((n) => (
+              <RenderNoteWithPin
+                key={n.id}
+                note={n}
+                updatePinnedNote={updatePinnedNote}
+                handleArchive={handleArchive}
+                handleDelete={handleDelete}
+                setSelectedNote={setSelectedNote}
+                setShowModal={setShowModal}
+                setNote={setNote}
+                // pinned={displayFilteredData.pinned}
+              />
+            ))}
           </div>
         </div>
-      ))}
+      )}
+      {unpinnedNotes.length > 0 && (
+        <div>
+          <h2 className="text-md text-[#5f6368] mb-3">All Notes</h2>
+          <div className={toggleStyling}>
+            {unpinnedNotes.map((n) => (
+              <RenderNoteWithPin
+                key={n.id}
+                note={n}
+                updatePinnedNote={updatePinnedNote}
+                handleArchive={handleArchive}
+                handleDelete={handleDelete}
+                setSelectedNote={setSelectedNote}
+                setShowModal={setShowModal}
+                setNote={setNote}
+              />
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 }

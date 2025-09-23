@@ -11,7 +11,7 @@ export default function useArchiveNotes() {
     fetchArchive();
   }, [fetchArchive]);
 
-  const handleUnarchive = async (note) => {
+  const handleUnarchive = async (note, pinned = false) => {
     const {
       data: { user },
       error: userError,
@@ -24,6 +24,7 @@ export default function useArchiveNotes() {
       notes_title: note.notes_title,
       notes_description: note.notes_description,
       user_id: user.id,
+      pinned,
     };
     if (note.image_url) {
       payload.image_url = note.image_url;
@@ -51,7 +52,7 @@ export default function useArchiveNotes() {
         archiveNotes: state.archiveNotes.filter((n) => n.id !== note.id),
       }));
       console.log("Note Unarchived successfully!");
-      toast.success("Note unarchived!");
+      toast.success(pinned ? "Note unarchived and pinned" : "Note unarchived!");
     } catch (err) {
       console.error("Error Unarchiving note:", err.message);
       toast.error("error to unarchive Note");
