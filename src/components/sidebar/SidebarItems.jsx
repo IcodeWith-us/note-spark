@@ -13,7 +13,7 @@ function SidebarItems({ item, onClick, active, isOpen }) {
         "flex items-center sm:px-6 sm:ml-0 py-2 text-sm font-medium transition-colors cursor-pointer rounded-r-3xl",
         isOpen && isActive
           ? "bg-[#feefc3] text-black"
-          : "hover:bg-[#feefc3] hover:text-black"
+          : "hover:bg-[#e6e6e6] hover:text-black"
       )}
     >
       <span

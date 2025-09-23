@@ -14,7 +14,6 @@ function NoteSectionCard({
 }) {
   const { handleArchive } = useHandleArchive();
   const { handleDelete } = useHandleDelete();
-
   const { setNote } = useHandleSaveNote();
 
   const toggleStyling = `${
