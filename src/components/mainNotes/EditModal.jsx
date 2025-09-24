@@ -1,6 +1,7 @@
 import React from "react";
 import Modal from "../common/Modal";
 import useEditmodal from "@/hooks/useEditmodal";
+import { Trash } from "lucide-react";
 
 function EditModal({ showModal, setShowModal, selectedNote }) {
   const {
@@ -14,6 +15,7 @@ function EditModal({ showModal, setShowModal, selectedNote }) {
 
   return (
     <Modal
+      disabled={!editDescription?.trim() || !editTitle?.trim()}
       open={showModal}
       onClose={() => {
         setShowModal(false);
@@ -29,11 +31,19 @@ function EditModal({ showModal, setShowModal, selectedNote }) {
     >
       <div className="w-full flex flex-col gap-4">
         {selectedNote?.image_url && (
-          <img
-            src={selectedNote.image_url}
-            alt="note"
-            className="rounded-md mb-2 max-h-64 object-cover border"
-          />
+          <div className="relative">
+            <img
+              src={selectedNote.image_url}
+              alt="note"
+              className="rounded-md mb-2 max-h-64 object-cover border w-full"
+            />
+            <button
+              type="button"
+              className="absolute bottom-4 right-2 p-2 rounded-full text-white shadow-md cursor-pointer hover:bg-amber-700 transition"
+            >
+              <Trash className="w-5 h-5" />
+            </button>
+          </div>
         )}
         <input
           type="text"

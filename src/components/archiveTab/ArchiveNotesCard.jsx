@@ -9,7 +9,7 @@ function ArchiveNotesCard({ toggle, displayFilteredData }) {
   const toggleStyling = `${
     toggle
       ? "columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 w-full"
-      : "flex flex-col gap-4 w-[500px]"
+      : "flex flex-col gap-4 w-[500px] mx-auto"
   }`;
   const btnStyling = "p-1 rounded-full hover:bg-gray-100 cursor-pointer";
   const mainDivStyling =

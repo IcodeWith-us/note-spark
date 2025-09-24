@@ -17,6 +17,7 @@ function Modal({
   cancelLabel,
   onSubmit,
   submitLabel,
+  disabled,
 }) {
   const [loading, setLoading] = useState(false);
 
@@ -60,7 +61,7 @@ function Modal({
                 "cursor-pointer bg-gray-200 text-black ho hover:bg-gray-200"
               }
               type="submit"
-              disabled={loading}
+              disabled={disabled || loading}
             >
               {loading ? "Submitting..." : submitLabel}
             </Button>

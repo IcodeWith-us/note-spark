@@ -10,7 +10,7 @@ function DisplayNotes({
   setShowModal,
 }) {
   return (
-    <div className="w-full mt-12 flex justify-center">
+    <div className="w-full mt-12">
       {displayFilteredData.length === 0 ? (
         <EmptyNotesCard
           heading={"No Notes yet"}

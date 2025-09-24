@@ -19,7 +19,7 @@ function NoteSectionCard({
   const toggleStyling = `${
     toggle
       ? "columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 w-full"
-      : "flex flex-col gap-4 w-[500px]"
+      : "flex flex-col gap-4 w-[500px] mx-auto"
   }`;
 
   const pinnedNotes = displayFilteredData.filter((n) => n.pinned);
@@ -28,8 +28,14 @@ function NoteSectionCard({
   return (
     <div className="space-y-8">
       {pinnedNotes.length > 0 && (
-        <div>
-          <h2 className="text-md text-[#5f6368] mb-3">Pinned Notes</h2>
+        <div className={toggle ? "" : "flex flex-col items-center"}>
+          <h2
+            className={`text-sm text-[#5f6368] mb-3 ${
+              toggle ? "text-left" : "text-left w-[500px]"
+            }`}
+          >
+            Pinned Notes
+          </h2>
           <div className={toggleStyling}>
             {pinnedNotes.map((n) => (
               <RenderNoteWithPin
@@ -46,9 +52,16 @@ function NoteSectionCard({
           </div>
         </div>
       )}
+
       {unpinnedNotes.length > 0 && (
-        <div>
-          <h2 className="text-md text-[#5f6368] mb-3">All Notes</h2>
+        <div className={toggle ? "" : "flex flex-col items-center"}>
+          <h2
+            className={`text-sm text-[#5f6368] mb-3 ${
+              toggle ? "text-left" : "text-left w-[500px]"
+            }`}
+          >
+            All Notes
+          </h2>
           <div className={toggleStyling}>
             {unpinnedNotes.map((n) => (
               <RenderNoteWithPin

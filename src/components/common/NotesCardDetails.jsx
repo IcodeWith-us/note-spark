@@ -26,7 +26,7 @@ export default function NotesCardDetails({ notesCategory, setNote }) {
           handleToggleCheck={handleToggleCheck}
         />
       ) : (
-        <p className="text-gray-600 text-sm whitespace-pre-line">
+        <p className="text-gray-600 text-sm break-words break-all whitespace-pre-wrap">
           {description}
         </p>
       )}
