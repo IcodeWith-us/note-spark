@@ -13,7 +13,7 @@ function ArchiveNotesCard({ toggle, displayFilteredData }) {
   }`;
   const btnStyling = "p-1 rounded-full hover:bg-gray-100 cursor-pointer";
   const mainDivStyling =
-    "relative group bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-all min-h-[180px]  overflow-hidden break-words mb-4 break-inside-avoid";
+    "relative group bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-all min-h-[140px]  overflow-hidden break-words mb-4 break-inside-avoid";
 
   return (
     <div className={toggleStyling}>

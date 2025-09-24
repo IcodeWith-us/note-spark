@@ -41,7 +41,6 @@ function NoteSectionCard({
                 setSelectedNote={setSelectedNote}
                 setShowModal={setShowModal}
                 setNote={setNote}
-                // pinned={displayFilteredData.pinned}
               />
             ))}
           </div>

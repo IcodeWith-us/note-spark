@@ -13,7 +13,7 @@ function BinNotesCard({ toggle, displayFilteredData }) {
   }`;
 
   const mainDivStyling =
-    "relative group bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-all min-h-[180px] overflow-hidden w-full break-words mb-4 break-inside-avoid";
+    "relative group bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-all min-h-[140px] overflow-hidden w-full break-words mb-4 break-inside-avoid";
 
   return (
     <div className={toggleStyling}>
