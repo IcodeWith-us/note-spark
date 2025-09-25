@@ -37,12 +37,12 @@ function EditModal({ showModal, setShowModal, selectedNote }) {
               alt="note"
               className="rounded-md mb-2 max-h-64 object-cover border w-full"
             />
-            <button
+            {/* <button
               type="button"
               className="absolute bottom-4 right-2 p-2 rounded-full text-white shadow-md cursor-pointer hover:bg-amber-700 transition"
             >
               <Trash className="w-5 h-5" />
-            </button>
+            </button> */}
           </div>
         )}
         <input
