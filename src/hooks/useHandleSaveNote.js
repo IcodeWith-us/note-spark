@@ -48,7 +48,7 @@ export default function useHandleSaveNote() {
       if (error) throw error;
       if (data && data.length > 0) {
         useFetchNotes.setState((state) => ({
-          notes: [...state.notes, data[0]],
+          notes: [data[0], ...state.notes],
         }));
       }
       setTitle("");

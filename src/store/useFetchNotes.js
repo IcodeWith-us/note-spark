@@ -28,9 +28,13 @@ const useFetchNotes = create((set, get) => ({
     if (error) {
       set({ error: error.message, loading: false });
     } else {
-      const notes = get().notes.map((note) =>
-        note.id === id ? { ...note, pinned } : note
-      );
+      const notes = get()
+        .notes.map((note) => (note.id === id ? { ...note, pinned } : note))
+        .sort((a, b) => {
+          if (b.pinned !== a.pinned) return b.pinned - a.pinned;
+          return new Date(b.created_at) - new Date(a.created_at);
+        });
+
       set({ notes, loading: false });
     }
   },
