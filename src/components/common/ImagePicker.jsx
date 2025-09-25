@@ -1,24 +1,8 @@
-import React, { useState } from "react";
-import { useDropzone } from "react-dropzone";
-
-function ImagePicker({ onImageSelect }) {
-  const [filePreview, setFilePreview] = useState(null);
-
-  const onDrop = (acceptedFiles) => {
-    if (acceptedFiles.length > 0) {
-      const file = acceptedFiles[0];
-
-      setFilePreview(URL.createObjectURL(file));
-
-      onImageSelect(file);
-    }
-  };
-
-  const { getRootProps, getInputProps } = useDropzone({
-    accept: { "image/*": [".png", ".jpg", ".jpeg"] },
-    onDrop,
+import useImagePicker from "@/hooks/useImagePicker";
+function ImagePicker({ onImageSelect, filePreview }) {
+  const { getRootProps, getInputProps } = useImagePicker({
+    onImageSelect,
   });
-
   return (
     <div
       {...getRootProps()}

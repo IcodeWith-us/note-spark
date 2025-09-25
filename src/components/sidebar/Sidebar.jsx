@@ -8,7 +8,7 @@ export default function Sidebar({ isOpen, active, setActive, setIsOpen }) {
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
       className={cn(
-        "fixed top-[64px] left-0 h-[calc(100vh-64px)] bg-background hover:w-64 py-2 transition-all duration-300 z-50",
+        "fixed top-[64px] left-0 h-[calc(100vh-64px)] bg-background hover:w-64 py-2 transition-all duration-500 z-50",
         "w-64 transform",
         isOpen ? "translate-x-0" : "-translate-x-full",
         "md:translate-x-0 md:relative md:z-auto",

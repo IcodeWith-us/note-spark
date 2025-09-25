@@ -25,7 +25,7 @@ function App() {
 
 function AppRoutes() {
   const [session, setSession] = useState(null);
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   const [active, setActive] = useState(() => {
     const savedActiveBar = localStorage.getItem("Note");
