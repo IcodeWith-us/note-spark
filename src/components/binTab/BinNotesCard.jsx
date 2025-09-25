@@ -20,7 +20,7 @@ function BinNotesCard({ toggle, displayFilteredData }) {
       {displayFilteredData.map((del) => (
         <div key={del.id} className={mainDivStyling}>
           <NotesCardDetails notesCategory={del} />
-          <div className="absolute bottom-2 right-2 flex gap-2 h-7 opacity-0 group-hover:opacity-100 transition-opacity">
+          <div className="absolute bottom-2 right-2 flex gap-2 h-7 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity">
             <CardTooltipIcon
               iconSize={18}
               className={"flex justify-between gap-2"}

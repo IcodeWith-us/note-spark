@@ -20,7 +20,7 @@ function ArchiveNotesCard({ toggle, displayFilteredData }) {
       {displayFilteredData.map((archive) => (
         <div key={archive.id} className={mainDivStyling}>
           <button
-            className="absolute top-4 right-2 p-2 rounded-full hover:bg-gray-100 cursor-pointer opacity-0 group-hover:opacity-100 transition-opacity"
+            className="absolute top-4 right-2 p-2 rounded-full hover:bg-gray-100 cursor-pointer opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity"
             onClick={(e) => {
               handleUnarchive(archive, true);
               e.stopPropagation();
@@ -30,7 +30,7 @@ function ArchiveNotesCard({ toggle, displayFilteredData }) {
           </button>
           <NotesCardDetails notesCategory={archive} />
 
-          <div className="absolute bottom-2 right-2 flex gap-2 h-7 opacity-0 group-hover:opacity-100 transition-opacity">
+          <div className="absolute bottom-2 right-2 flex gap-2 h-7 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity">
             <CardTooltipIcon
               iconSize={18}
               className="flex justify-between gap-2"
